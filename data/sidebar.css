@@ -1,0 +1,749 @@
+html, body,
+ul, li,
+h1, h2, h3, h4, h5, h6
+form, input, label, button, fieldset, textarea,
+div, p, span
+{
+    margin: 0;
+    padding: 0;
+    -moz-box-sizing: border-box;
+}
+html, body
+{
+    height: 100%;
+    font: 14px/1 Arial, sans-serif;
+    cursor: default;
+    color: WindowText;
+    background-color: Window;
+}
+ul
+{
+    list-style: none;
+}
+
+
+
+.expanding-list
+{
+    margin-bottom: 10px;
+}
+
+.expanding-list li:before
+{
+    content: '\2023';
+    margin-right: 7px;
+}
+
+.expanding-list > li:before
+{
+    content: '\25B6';
+    position: relative;
+    top: -3px;
+    color: GrayText;
+}
+
+.expanding-list > li.shown:before
+{
+    content: '\25BC';
+    left: -1px;
+    top: -4px;
+    margin-right: 5px;
+}
+
+.result-list li:before
+{
+    content: none;
+    margin-right: 0;
+}
+
+.expanding-list li span.group-label,
+.expanding-list li span.group-label-details,
+.expanding-list ul li
+{
+    min-height: 18px;
+    line-height: 18px;
+}
+
+.expanding-list ul
+{
+    margin: -2px 0 4px;
+}
+
+.expanding-list ul li
+{
+    padding-left: 15px;
+}
+
+.expanding-list ul li.selected
+{
+    background-color: Highlight;
+}
+
+.expanding-list > li.selected-group span.group-label::after {
+   content: ' \2022';
+}
+
+.expanding-list > li span.group-label,
+.expanding-list > li span.group-label-details,
+.expanding-list > li span.group-edit,
+.expanding-list ul li,
+#plan-name
+{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.expanding-list > li span.group-label:hover,
+.expanding-list ul li:hover,
+.expanding-list ul li.selected
+{
+    padding-right: 2.3em;
+}
+
+.expanding-list .result-list li:hover,
+.expanding-list .result-list li.selected
+{
+    padding-right: 2.6em;
+}
+
+.group-label,
+.group-label-details,
+.group-edit
+{
+    display: inline-block;
+    width: calc(100% - 1.5em);
+}
+
+.actions
+{
+    display: none;
+    -moz-transform: rotate(0);
+    float: right;
+    margin-right: -2.2em;
+}
+
+.result-actions
+{
+    margin-right: -2.5em;
+}
+
+.edit-actions
+{
+    display: block;
+}
+
+.edit-actions,
+.plan-actions
+{
+    margin: 0;
+}
+
+.expanding-list > li span.group-label:hover span.group-actions,
+.expanding-list ul li:hover span.item-actions,
+.expanding-list ul li.selected span.item-actions,
+#left-top:hover span.plan-actions
+{
+    display: block;
+}
+
+.actions em,
+.result-selection em
+{
+    position: relative;
+    font-style: normal;
+    cursor: pointer;
+}
+
+.actions em
+{
+    opacity: 0.6;
+}
+
+.result-selection em
+{
+    opacity: 0.4;
+}
+
+.actions em:hover,
+.result-selection em:hover,
+.result-pending .result-selection-pending,
+.result-pass .result-selection-pass,
+.result-fail .result-selection-fail
+{
+    opacity: 1.0;
+}
+
+.result-list em
+{
+    top: 2px;
+}
+
+.result-selection em
+{
+    display: none;
+    font-size: 20px;
+}
+
+.result-list em.open
+{
+    font-size: 17px;
+    top: 3px;
+}
+
+.result-pending .result-selection-pending,
+.result-pass .result-selection-pass,
+.result-fail .result-selection-fail,
+.result-list li:hover em,
+.result-list li.selected em
+{
+    display: inline-block;
+}
+
+.result-has-details em.more
+{
+    background: -moz-radial-gradient(center, ellipse cover, #FF0000 0%, #FF0000 25%, transparent 26%, transparent 100%);
+    background: radial-gradient(ellipse at center, #FF0000 0%, #FF0000 25%, transparent 26%, transparent 100%);
+    background-position: 2px 0;
+}
+
+#plan-name,
+#plan-name-input,
+.group-edit input
+{
+    display: inline-block;
+}
+
+#plan-name
+{
+    width: calc(100% - 32px);
+}
+
+#plan-name-input
+{
+    width: calc(100% - 41px);
+    margin-top: -2px;
+}
+
+.actions .save
+{
+    top: 1px;
+}
+
+#plan-name-edit
+{
+    display: none;
+}
+
+.group-actions.edit-actions
+{
+    margin-top: 2px;
+}
+
+.group-edit input
+{
+    width: calc(100% - 40px);
+    float: left;
+}
+
+
+
+#panel-left,
+#panel-right
+{
+    height: 100%;
+    width: 50%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+}
+
+#panel-left
+{
+    box-shadow: 2px 0px 8px -2px ThreeDShadow;
+    z-index: 2;
+}
+
+#panel-right
+{
+    border-left: 1px solid WindowFrame;
+}
+
+@media screen and (max-width: 499px){
+    #panel-left
+        {
+        width: 100%;
+    }
+    #panel-right
+        {
+        display: none;
+    }
+}
+
+#panel-left > div,
+#panel-right > div
+{
+    width: 100%;
+}
+
+#left-top
+{
+    height: 28px;
+    padding: 6px 4px;
+    color: MenuText;
+    font-weight: bold;
+    background-color: Menu;
+    border-bottom: 2px solid WindowFrame;
+    overflow: hidden;
+}
+
+.accordion-title
+{
+    height: 24px;
+    padding: 4px;
+    cursor: pointer;
+    background-color: InactiveCaption;
+}
+
+.accordion-title.active,
+.accordion-title:hover
+{
+    background-color: ActiveCaption;
+}
+
+.accordion-title:hover
+{
+    text-decoration: underline;
+}
+
+.accordion-content
+{
+    display: none;
+    overflow: auto;
+}
+
+.accordion-title,
+.accordion-content
+{
+    border-bottom: 1px solid WindowFrame;
+}
+
+.accordion-inner
+{
+    margin: 5px;
+}
+
+
+
+.inline-accordion li
+{
+    border: 1px solid ThreeDDarkShadow;
+    margin-top: -1px;
+}
+
+.inline-accordion h3
+{
+    font-size: 14px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.inline-accordion h3:before
+{
+    content: '\002B';
+    margin-right: 0.5em;
+    display: inline-block;
+}
+
+.inline-accordion h3.shown:before
+{
+    content: '\2212';
+}
+
+.inline-accordion h3:hover
+{
+    text-decoration: underline;
+}
+
+.inline-accordion div
+{
+    padding: 0 5px 5px;
+}
+
+
+.inline-accordion form label
+{
+    display: table;
+    width: 100%;
+}
+
+.inline-accordion form label,
+.inline-accordion form p
+{
+    margin: 5px 0;
+}
+
+.inline-accordion form > input[type=text]
+{
+    margin-bottom: 5px;
+}
+
+.inline-accordion form span,
+.inline-accordion form input[type=text]
+{
+    display: table-cell;
+}
+
+.inline-accordion form input[type=text],
+.inline-accordion form select,
+.inline-accordion form textarea
+{
+    width: 100%;
+}
+
+.inline-accordion form textarea
+{
+    resize: none;
+    -moz-resize: none;
+    font: 14px/1 Arial, sans-serif;
+}
+
+.inline-accordion form input[type=radio],
+.inline-accordion form input[type=checkbox]
+{
+    margin-left: 5px;
+}
+
+.inline-accordion form input[type=submit],
+.inline-accordion form input[type=reset]
+{
+    width: 50%;
+}
+
+#pages-add-journey-stop
+{
+    width: 100%;
+}
+
+span.help
+{
+    font-size: 17px;
+    position: relative;
+    top: 1px;
+    cursor: help;
+    opacity: 0.7;
+}
+
+#criteria-add-single-new-form span.help
+{
+    text-align: right;
+}
+
+
+#criteria-add-tabs
+{
+    border: 1px solid ThreeDDarkShadow;
+}
+
+#criteria-add-tabs li
+{
+    display: inline-block;
+    width: 50%;
+    padding: 5px;
+    text-align: center;
+    background-color: Menu;
+    cursor: pointer;
+}
+
+#criteria-add-tabs li.shown
+{
+    background-color: Scrollbar;
+}
+
+#criteria-add-tabs li:hover
+{
+    text-decoration: underline;
+}
+
+.criteria-add-list
+{
+    display: none;
+}
+
+.label-indent
+{
+    padding-left: 10px;
+}
+
+#reports-options label
+{
+    text-indent: -17px;
+}
+
+#reports-options label,
+#reports-options fieldset
+{
+    display: block;
+    margin: 7px 2px;
+    padding-left: 17px;
+}
+
+#reports-options fieldset
+{
+    border: none;
+}
+
+#reports-options fieldset legend
+{
+    margin-left: -19px;
+}
+
+#reports-options fieldset label
+{
+    margin-bottom: 0;
+}
+
+#reports-options input[type=radio],
+#reports-options input[type=checkbox]
+{
+    vertical-align: middle;
+}
+
+#reports-options button
+{
+    margin: 7px 0;
+    padding: 0 5px;
+    width: 50%;
+}
+
+
+#left-bottom
+{
+    height: 26px;
+    background-color: Menu;
+    border-top: 3px solid WindowFrame;
+    font-size: 12px;
+}
+
+.plans-view #left-bottom
+{
+    position: absolute;
+    top: -3px;
+    height: 100%;
+}
+
+#plans-menu
+{
+    width: 150%;
+    overflow: hidden;
+}
+
+#plans-menu div
+{
+    float: left;
+    padding: 3px 6px;
+    width: 33.5%;
+    cursor: pointer;
+    background-color: Menu;
+}
+
+#plans-menu div:hover span
+{
+    text-decoration: underline;
+}
+
+#plans-menu div:before
+{
+    font-size: 15px;
+    padding-right: 5px;
+}
+
+#plans-menu-new:before,
+#plans-list-new:before
+{
+    content: '\1F4D1' !important;
+}
+
+#plans-menu-open:before
+{
+    content: '\1F4C2';
+}
+
+#plans-menu-cancel:before
+{
+    content: '\20E0';
+    padding-right: 12px !important;
+}
+
+.plans-new #plans-menu-cancel,
+.plans-open #plans-menu-new
+{
+    margin-left: -33.5%;
+}
+
+.plans-new #plans-menu-new span,
+.plans-open #plans-menu-open span
+{
+    text-decoration: underline;
+}
+
+.plans-new #plans-new,
+.plans-open #plans-open
+{
+    display: block;
+}
+
+.plans-content
+{
+    display: none;
+    padding: 10px;
+}
+
+#plans-list li,
+#plans-list-new
+{
+    border: 1px solid ActiveBorder;
+    margin-bottom: -1px;
+    padding: 6px 4px;
+    cursor: pointer;
+}
+
+#plans-list li:hover span,
+#plans-list-new:hover span
+{
+    text-decoration: underline;
+}
+
+#plans-list li:before,
+#plans-list-new:before
+{
+    content: '\1F4C4';
+    padding-right: 5px;
+}
+
+#plans-list-new span
+{
+    font-style: italic;
+}
+
+#plans-new-form
+{
+    font-size: 14px;
+}
+
+#plans-new-form label
+{
+    display: table;
+    width: 100%;
+    margin: 10px 0;
+}
+
+#plans-new-form span,
+#plans-new-form input[type=text]
+{
+    display: table-cell;
+}
+
+#plans-new-form input
+{
+    width: 100%;
+}
+
+#plans-new-form input[type=text]
+{
+    padding: 2px;
+}
+
+
+.inline-accordion li > div
+{
+    display: none;
+}
+
+
+.panel-right-inner
+{
+    display: none;
+    padding: 5px;
+    overflow: auto;
+    height: 100%;
+}
+
+#panel-right input[type=button]
+{
+    float: right;
+    cursor: pointer;
+    text-align: center;
+    width: 25px;
+    height: 25px;
+}
+
+#panel-right h2
+{
+    font-size: 16px;
+    line-height: 20px;
+}
+
+#panel-right h2 span
+{
+    font-size: 15px;
+    margin-left: 15px;
+    display: inline-block;
+}
+
+#pages-detail-url,
+#criteria-detail-more
+{
+    font-style: italic;
+}
+
+#panel-right h2 #criteria-detail-more
+{
+    font-size: 13px;
+    cursor: pointer;
+}
+
+#panel-right .info
+{
+    padding: 10px 15px;
+    text-align: center;
+    opacity: 0.8;
+    line-height: 17px;
+}
+
+#panel-right .info span
+{
+    cursor: pointer;
+    color: -moz-hyperlinktext;
+}
+
+#panel-right .info span:hover
+{
+    text-decoration: underline;
+}
+
+#criteria-detail-more:hover
+{
+    text-decoration: underline;
+}
+
+#panel-right .expanding-list
+{
+    margin-top: 10px;
+}
+
+#right-bottom
+{
+    height: 40%;
+    padding: 5px;
+    overflow: auto;
+    border-top: 1px solid WindowFrame;
+    background-color: Window;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+#panel-right.show-panel .panel-right-inner
+{
+    height: 60%;
+}

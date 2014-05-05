@@ -1,0 +1,11 @@
+{
+  "name": "web-a11y-evaluation-manager",
+  "title": "Web Accessibility Evaluation Manager",
+  "id": "web-a11y-evaluation-manager",
+  "description": "A tool for managing web accessibility evaluations. Add and track criteria (standard or custom), web pages, user journeys and test results, then generate reports.",
+  "author": "Andrew Fairbairn",
+  "license": "GPLv3",
+  "version": "0.1",
+  "icon": "icon.png",
+  "icon64": "icon64.png"
+}

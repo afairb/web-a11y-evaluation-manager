@@ -1,0 +1,61 @@
+html
+{
+    cursor: default;
+}
+
+html, textarea
+{
+    font: 14px/1.2 Arial, sans-serif;
+}
+
+div, label, input, textarea
+{
+    -moz-box-sizing: border-box;
+}
+
+body > div
+{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 5px 0;
+}
+
+label
+{
+    display: inline-block;
+    width: 25%;
+    text-align: right;
+    padding-right: 5px;
+}
+
+.textarea-label
+{
+    vertical-align: top;
+    padding-top: 3px;
+}
+
+span
+{
+    font-style: italic;
+}
+
+textarea
+{
+    -moz-resize: none;
+    resize: none;
+}
+
+textarea,
+input[type=text],
+input[type=date],
+input[type=file]
+{
+    width: 75%;
+}
+
+input[type=submit],
+input[type=reset]
+{
+    width: 50%;
+}

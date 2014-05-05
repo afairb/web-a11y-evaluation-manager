@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+    <body>
+        <link rel="stylesheet" href="jquery-ui-smoothness/jquery-ui-1.10.4.custom.css" type="text/css">
+        <link rel="stylesheet" href="panel.css">
+        <style type="text/css">
+            .ui-tooltip
+            {
+                font-size: 11px;
+                max-width: 100%;
+            }
+            span.help
+            {
+                font-size: 17px;
+                position: absolute;
+                right: 7px;
+                cursor: help;
+                opacity: 0.7;
+                font-style: normal;
+                margin-top: -3px;
+            }
+            label
+            {
+                width: 100%;
+                text-align: left;
+            }
+            #group-label
+            {
+                width: auto;
+            }
+            textarea,
+            input[type=text]
+            {
+                width: 100%;
+            }
+        </style>
+        <div>
+            <label id="group-label">Set: </label><span id="group"></span>
+        </div>
+        <div>
+            <label for="name">Name: <span title="A name to identify the criterion" class="help">&#9072;</span></label><br>
+            <input type="text" id="name">
+        </div>
+        <div>
+            <label for="description" class="textarea-label">Description: <span title="Information about what the criterion\nchecks" class="help">&#9072;</span></label><br>
+            <textarea id="description" rows="4"></textarea>
+        </div>
+        <div>
+            <label for="reasoning" class="textarea-label">Reasoning: <span title="Rationale for the criterion; why is it\nimportant?" class="help">&#9072;</span></label><br>
+            <textarea id="reasoning" rows="4"></textarea>
+        </div>
+        <div>
+            <label for="guidance" class="textarea-label">Guidance: <span title="How to test for this criterion" class="help">&#9072;</span></label><br>
+            <textarea id="guidance" rows="3"></textarea>
+        </div>
+        <div>
+            <label for="links">Links: <span title="One or more URLs containing\ndocumentation or extra information\nabout the criterion - separate\nmultiple URLs with commas" class="help">&#9072;</span></label><br>
+            <input type="text" id="links">
+        </div>
+        <div>
+            <input type="submit" value="Save" id="save"><input type="reset" value="Cancel" id="cancel">
+        </div>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+    <body>
+        <link rel="stylesheet" href="jquery-ui-smoothness/jquery-ui-1.10.4.custom.css" type="text/css">
+        <link rel="stylesheet" href="panel.css">
+        <style type="text/css">
+            .ui-datepicker
+            {
+                font-size: 11px;
+            }
+            #image-exists
+            {
+                display: inline-block;
+            }
+            #image-exists-img
+            {
+                max-height: 25px;
+                width: auto;
+                cursor: zoom-in;
+                vertical-align: middle;
+                margin-right: 7px;
+            }
+            #image-exists-remove
+            {
+                cursor: pointer;
+                font-size: 12px;
+            }
+            #image-exists-remove:hover
+            {
+                text-decoration: underline;
+            }
+        </style>
+        <div>
+            <label>Criterion: </label><span id="criterion"></span>
+        </div>
+        <div>
+            <label>Page: </label><span id="page"></span>
+        </div>
+        <div>
+            <label for="details" class="textarea-label">Details: </label><textarea id="details" rows="5"></textarea>
+        </div>
+        <div>
+            <label for="date">Date: </label><input type="date" id="date">
+        </div>
+        <div>
+            <label for="image">Image: </label><input type="file" accept="image/*" id="image">
+            <div id="image-exists"><img src="" id="image-exists-img"> <span id="image-exists-remove">Remove</span></div>
+        </div>
+        <div>
+            <input type="submit" value="Save" id="save"><input type="reset" value="Cancel" id="cancel">
+        </div>
+    </body>
+</html>

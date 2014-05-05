@@ -1,0 +1,301 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="jquery-2.1.0.js"></script>
+        <script src="../lib/wcag-1.js"></script>
+        <script src="../lib/wcag-2.js"></script>
+        <script src="../lib/webair.js"></script>
+        <link rel="stylesheet" href="sidebar.css">
+    </head>
+    <body>
+        <div id="panel-left">
+            <div id="left-top">
+                <div id="plan-name-text">
+                    <span id="plan-name">Plan</span><span class="plan-actions actions"><em class="edit" title="Edit the name of this plan"> &#9998;</em><em class="delete" title="Delete this plan"> &#10006;</em></span>
+                </div>
+                <div id="plan-name-edit">
+                    <input type="text" id="plan-name-input"><span class="plan-actions edit-actions actions"><em class="save" title="Save your changes"> &#128190;</em><em class="cancel" title="Cancel editing"> &#128683;</em></span>
+                </div>
+            </div>
+            <div id="pages-title" class="accordion-title">
+                Pages
+            </div>
+            <div id="pages-content" class="accordion-content">
+                <div class="accordion-inner">
+                    <ul id="pages-list" class="expanding-list"></ul>
+                    <ul class="inline-accordion">
+                        <li id="pages-add-browser">
+                            <h3>Add page from browser</h3>
+                            <div>
+                                <form id="pages-add-browser-form">
+                                    <label><span>Page title: </span><input type="text" id="pages-add-browser-title"></label>
+                                    <label><span>Page URL: </span><input type="text" id="pages-add-browser-url"></label>
+                                    <input type="submit" value="Add" id="pages-add-browser-add"><input type="reset" value="Cancel" id="pages-add-browser-cancel">
+                                </form>
+                            </div>
+                        </li>
+                        <li id="pages-add-journey">
+                            <h3>Add user journey</h3>
+                            <div>
+                                <form id="pages-add-journey-form">
+                                    <p>Navigate to the first web page you want to record then click the button below to start recording the user journey.</p>
+                                    <input type="submit" value="Start" id="pages-add-journey-start"><input type="reset" value="Cancel" id="pages-add-journey-cancel">
+                                </form>
+                                <form id="pages-add-journey-recording" style="display:none;">
+                                    <p><strong>Recording</strong>: pages you visit in the browser will be added to the list above. Click the button below to stop recording and end the journey.</p>
+                                    <input type="submit" value="Stop" id="pages-add-journey-stop">
+                                </form>
+                            </div>
+                        </li>
+                        <li id="pages-add-manual">
+                            <h3>Add page manually</h3>
+                            <div>
+                                <form id="pages-add-manual-form">
+                                    <label><span>Page title: </span><input type="text" id="pages-add-manual-title"></label>
+                                    <label><span>Page URL: </span><input type="text" id="pages-add-manual-url"></label>
+                                    <input type="submit" value="Add" id="pages-add-manual-add"><input type="reset" value="Cancel" id="pages-add-manual-cancel">
+                                </form>
+                            </div>
+                        </li>
+                        <li id="pages-add-group">
+                            <h3>Add new empty group</h3>
+                            <div>
+                                <form id="pages-add-group-form">
+                                    <label><span>Group name: </span><input type="text" id="pages-add-group-name"></label>
+                                    <input type="submit" value="Add" id="pages-add-group-add"><input type="reset" value="Cancel" id="pages-add-group-cancel">
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="criteria-title" class="accordion-title">
+                Criteria
+            </div>
+            <div id="criteria-content" class="accordion-content">
+                <div class="accordion-inner">
+                    <ul id="criteria-list" class="expanding-list"></ul>
+                    <ul id="criteria-add-tabs">
+                        <li id="criteria-add-tabs-set" title="Add a set of test criteria">Add set</li><li id="criteria-add-tabs-single" title="Add a single test criterion">Add single</li>
+                    </ul>
+                    <ul id="criteria-add-set" class="criteria-add-list inline-accordion">
+                        <li id="criteria-add-set-wcag1">
+                            <h3>Add WCAG 1.0</h3>
+                            <div>
+                                <form id="criteria-add-set-wcag1-form">
+                                    <label><input type="checkbox" id="wcag1-all"> <em>All sets</em></label>
+                                    <label><input type="checkbox" name="wcag1" value="1. Provide equivalent alternatives to auditory and visual content"> 1. Provide equivalent alternatives to auditory and visual content</label>
+                                    <label><input type="checkbox" name="wcag1" value="2. Don't rely on color alone"> 2. Don't rely on color alone</label>
+                                    <label><input type="checkbox" name="wcag1" value="3. Use markup and style sheets and do so properly"> 3. Use markup and style sheets and do so properly</label>
+                                    <label><input type="checkbox" name="wcag1" value="4. Clarify natural language usage"> 4. Clarify natural language usage</label>
+                                    <label><input type="checkbox" name="wcag1" value="5. Create tables that transform gracefully"> 5. Create tables that transform gracefully</label>
+                                    <label><input type="checkbox" name="wcag1" value="6. Ensure that pages featuring new technologies transform gracefully"> 6. Ensure that pages featuring new technologies transform gracefully</label>
+                                    <label><input type="checkbox" name="wcag1" value="7. Ensure user control of time-sensitive content changes"> 7. Ensure user control of time-sensitive content changes</label>
+                                    <label><input type="checkbox" name="wcag1" value="8. Ensure direct accessibility of embedded user interfaces"> 8. Ensure direct accessibility of embedded user interfaces</label>
+                                    <label><input type="checkbox" name="wcag1" value="9. Design for device-independence"> 9. Design for device-independence</label>
+                                    <label><input type="checkbox" name="wcag1" value="10. Use interim solutions"> 10. Use interim solutions</label>
+                                    <label><input type="checkbox" name="wcag1" value="11. Use W3C technologies and guidelines"> 11. Use W3C technologies and guidelines</label>
+                                    <label><input type="checkbox" name="wcag1" value="12. Provide context and orientation information"> 12. Provide context and orientation information</label>
+                                    <label><input type="checkbox" name="wcag1" value="13. Provide clear navigation mechanisms"> 13. Provide clear navigation mechanisms</label>
+                                    <label><input type="checkbox" name="wcag1" value="14. Ensure that documents are clear and simple"> 14. Ensure that documents are clear and simple</label>
+
+                                    <label>Add criteria up to:</label>
+                                    <label><input type="radio" name="wcag1-level" value="1" checked="checked"> Priority Level 1</label>
+                                    <label><input type="radio" name="wcag1-level" value="2"> Priority Level 2</label>
+                                    <label><input type="radio" name="wcag1-level" value="3"> Priority Level 3</label>
+                                    <input type="submit" value="Add" id="criteria-add-set-wcag1-add"><input type="reset" value="Cancel" id="criteria-add-set-wcag1-cancel">
+                                </form>
+                            </div>
+                        </li>
+                        <li id="criteria-add-set-wcag2">
+                            <h3>Add WCAG 2.0</h3>
+                            <div>
+                                <form id="criteria-add-set-wcag2-form">
+                                    <label><input type="checkbox" id="wcag2-all"> <em>All guidelines</em></label>
+                                    <label><input type="checkbox" name="wcag2-principle" id="wcag2-1"> 1 Perceivable</label>
+                                    <label class="label-indent"><input type="checkbox" name="wcag2" value="1.1 Text Alternatives" data-principle="1"> 1.1 Text Alternatives</label>
+                                    <label class="label-indent"><input type="checkbox" name="wcag2" value="1.2 Time-based Media" data-principle="1"> 1.2 Time-based Media</label>
+                                    <label class="label-indent"><input type="checkbox" name="wcag2" value="1.3 Adaptable" data-principle="1"> 1.3 Adaptable</label>
+                                    <label class="label-indent"><input type="checkbox" name="wcag2" value="1.4 Distinguishable" data-principle="1"> 1.4 Distinguishable</label>
+                                    <label><input type="checkbox" name="wcag2-principle" id="wcag2-2"> 2 Operable</label>
+                                    <label class="label-indent"><input type="checkbox" name="wcag2" value="2.1 Keyboard Accessible" data-principle="2"> 2.1 Keyboard Accessible</label>
+                                    <label class="label-indent"><input type="checkbox" name="wcag2" value="2.2 Enough Time" data-principle="2"> 2.2 Enough Time</label>
+                                    <label class="label-indent"><input type="checkbox" name="wcag2" value="2.3 Seizures" data-principle="2"> 2.3 Seizures</label>
+                                    <label class="label-indent"><input type="checkbox" name="wcag2" value="2.4 Navigable" data-principle="2"> 2.4 Navigable</label>
+                                    <label><input type="checkbox" name="wcag2-principle" id="wcag2-3"> 3 Understandable</label>
+                                    <label class="label-indent"><input type="checkbox" name="wcag2" value="3.1 Readable" data-principle="3"> 3.1 Readable</label>
+                                    <label class="label-indent"><input type="checkbox" name="wcag2" value="3.2 Predictable" data-principle="3"> 3.2 Predictable</label>
+                                    <label class="label-indent"><input type="checkbox" name="wcag2" value="3.3 Input Assistance" data-principle="3"> 3.3 Input Assistance</label>
+                                    <label><input type="checkbox" name="wcag2-principle" id="wcag2-4"> 4 Robust</label>
+                                    <label class="label-indent"><input type="checkbox" name="wcag2" value="4.1 Compatible" data-principle="4"> 4.1 Compatible</label>
+                                    <label>Add criteria up to:</label>
+                                    <label><input type="radio" name="wcag2-level" value="1" checked="checked"> Conformance Level A</label>
+                                    <label><input type="radio" name="wcag2-level" value="2"> Conformance Level AA</label>
+                                    <label><input type="radio" name="wcag2-level" value="3"> Conformance Level AAA</label>
+                                    <input type="submit" value="Add" id="criteria-add-set-wcag2-add"><input type="reset" value="Cancel" id="criteria-add-set-wcag2-cancel">
+                                </form>
+                            </div>
+                        </li>
+                        <li id="criteria-add-set-webair">
+                            <h3>Add WebAIR</h3>
+                            <div>
+                                <form id="criteria-add-set-webair-form">
+                                    <label><input type="checkbox" id="webair-all"> <em>All sets</em></label>
+                                    <label><input type="checkbox" name="webair" value="Forms"> Forms</label>
+                                    <label><input type="checkbox" name="webair" value="Links"> Links</label>
+                                    <label><input type="checkbox" name="webair" value="Tables"> Tables</label>
+                                    <label><input type="checkbox" name="webair" value="Images"> Images</label>
+                                    <label><input type="checkbox" name="webair" value="Text"> Text</label>
+                                    <label><input type="checkbox" name="webair" value="Audio & Video"> Audio & Video</label>
+                                    <label><input type="checkbox" name="webair" value="Time Limits"> Time Limits</label>
+                                    <label><input type="checkbox" name="webair" value="Navigation"> Navigation</label>
+                                    <input type="submit" value="Add" id="criteria-add-set-webair-add"><input type="reset" value="Cancel" id="criteria-add-set-webair-cancel">
+                                </form>
+                            </div>
+                        </li>
+                        <li id="criteria-add-set-previous">
+                            <h3>Add previously used set</h3>
+                            <div>
+                                <form id="criteria-add-set-previous-form">
+                                    <label><select name="previous-set" id="criteria-add-set-previous-list"></select></label>
+                                    <input type="submit" value="Add" id="criteria-add-set-previous-add"><input type="reset" value="Cancel" id="criteria-add-set-previous-cancel">
+                                </form>
+                            </div>
+                        </li>
+                        <li id="criteria-add-set-new">
+                            <h3>Add new empty set</h3>
+                            <div>
+                                <form id="criteria-add-set-new-form">
+                                    <label><span>Set name: </span><input type="text" id="criteria-add-set-new-name"></label>
+                                    <input type="submit" value="Add" id="criteria-add-set-new-add"><input type="reset" value="Cancel" id="criteria-add-set-new-cancel">
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul id="criteria-add-single" class="criteria-add-list inline-accordion">
+                        <li id="criteria-add-single-wcag1">
+                            <h3>Add WCAG 1.0 criterion</h3>
+                            <div>
+                                <form id="criteria-add-single-wcag1-form">
+                                    <label><select name="wcag1-single" id="criteria-add-single-wcag1-list"><option value="" disabled="disabled" selected="selected">Choose a single WCAG 1.0 criterion</option></select></label>
+                                    <p id="criteria-add-single-wcag1-description"></p>
+                                    <input type="submit" value="Add" id="criteria-add-single-wcag1-add"><input type="reset" value="Cancel" id="criteria-add-single-wcag1-cancel">
+                                </form>
+                            </div>
+                        </li>
+                        <li id="criteria-add-single-wcag2">
+                            <h3>Add WCAG 2.0 criterion</h3>
+                            <div>
+                                <form id="criteria-add-single-wcag2-form">
+                                    <label><select name="wcag2-single" id="criteria-add-single-wcag2-list"><option value="" disabled="disabled" selected="selected">Choose a single WCAG 2.0 criterion</option></select></label>
+                                    <p id="criteria-add-single-wcag2-description"></p>
+                                    <input type="submit" value="Add" id="criteria-add-single-wcag2-add"><input type="reset" value="Cancel" id="criteria-add-single-wcag2-cancel">
+                                </form>
+                            </div>
+                        </li>
+                        <li id="criteria-add-single-webair">
+                            <h3>Add WebAIR criterion</h3>
+                            <div>
+                                <form id="criteria-add-single-webair-form">
+                                    <label><select name="webair-single" id="criteria-add-single-webair-list"><option value="" disabled="disabled" selected="selected">Choose a single WebAIR criterion</option></select></label>
+                                    <p id="criteria-add-single-webair-description"></p>
+                                    <input type="submit" value="Add" id="criteria-add-single-webair-add"><input type="reset" value="Cancel" id="criteria-add-single-webair-cancel">
+                                </form>
+                            </div>
+                        </li>
+                        <li id="criteria-add-single-existing">
+                            <h3>Add existing custom criterion</h3>
+                            <div>
+                                <form id="criteria-add-single-existing-form">
+                                    <label><select name="existing-single" id="criteria-add-single-existing-list"></select></label>
+                                    <p id="criteria-add-single-existing-description"></p>
+                                    <input type="submit" value="Add" id="criteria-add-single-existing-add"><input type="reset" value="Cancel" id="criteria-add-single-existing-cancel">
+                                </form>
+                            </div>
+                        </li>
+                        <li id="criteria-add-single-new">
+                            <h3>Add new custom criterion</h3>
+                            <div>
+                                <form id="criteria-add-single-new-form">
+                                    <label for="criteria-add-single-new-name">Name: <span title="A name to identify the criterion" class="help">&#9072;</span></label>
+                                    <input type="text" id="criteria-add-single-new-name">
+                                    <label for="criteria-add-single-new-description">Description: <span title="Information about what the criterion checks" class="help">&#9072;</span></label>
+                                    <textarea id="criteria-add-single-new-description" rows="4"></textarea>
+                                    <label for="criteria-add-single-new-reasoning">Reasoning: <span title="Rationale for the criterion; why is it important?" class="help">&#9072;</span></label>
+                                    <textarea id="criteria-add-single-new-reasoning" rows="4"></textarea>
+                                    <label for="criteria-add-single-new-guidance">Guidance: <span title="How to test for this criterion" class="help">&#9072;</span></label>
+                                    <textarea id="criteria-add-single-new-guidance" rows="3"></textarea>
+                                    <label for="criteria-add-single-new-links">Links: <span title="One or more URLs containing documentation or extra information about the criterion - separate multiple URLs with commas" class="help">&#9072;</span></label>
+                                    <input type="text" id="criteria-add-single-new-links">
+                                    <input type="submit" value="Add" id="criteria-add-single-new-add"><input type="reset" value="Cancel" id="criteria-add-single-new-cancel">
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="reports-title" class="accordion-title">
+                Generate Reports
+            </div>
+            <div id="reports-content" class="accordion-content">
+                <div class="accordion-inner">
+                    <form id="reports-options">
+                        <label><input type="radio" name="report-level" value="groups" checked="checked"> Show as groups <span title="List your test results aggregated into groups of pages" class="help">&#9072;</span></label>
+                        <label><input type="radio" name="report-level" value="individual"> Show as individual tests <span title="List each test result individually" class="help">&#9072;</span></label>
+                        <label><input type="checkbox" name="report-tables" value="1" checked="checked"> Include summary tables <span title="Include tables for each group of pages showing an overview of all related test results" class="help">&#9072;</span></label>
+                        <fieldset>
+                        <legend>Include results with the status: <span title="Only include test results that have one of the following statuses" class="help">&#9072;</span></legend>
+                        <label><input type="checkbox" name="report-status" value="pass" checked="checked"> Pass</label>
+                        <label><input type="checkbox" name="report-status" value="fail" checked="checked"> Fail</label>
+                        <label><input type="checkbox" name="report-status" value="pending" checked="checked"> Pending</label>
+                        </fieldset>
+                        <label><input type="checkbox" name="report-criteria_details" value="1" checked="checked"> Include full details about criteria <span title="Include detailed descriptions and testing information alongside each criterion" class="help">&#9072;</span></label>
+                        <label><input type="checkbox" name="report-results_annotations" value="1" checked="checked"> Include annotations added to results <span title="Include any detailed annotations that have been added to individual test results" class="help">&#9072;</span></label>
+                        <label><input type="checkbox" name="report-results_images" value="1" checked="checked"> Include images added to results <span title="Include any images that have been added to invidividual test results" class="help">&#9072;</span></label>
+                        <button type="submit" id="reports-generate" style="width:100%;">Generate using all tests</button><!--<button type="button" id="reports-select">Generate using a subset of tests</button>-->
+                    </form>
+                </div>
+            </div>
+            <div id="left-bottom">
+                <div id="plans-menu">
+                    <div id="plans-menu-new"><span>New Test Plan</span> </div><div id="plans-menu-open"><span>Open Test Plan</span></div><div id="plans-menu-cancel"><span>Cancel</span></div>
+                </div>
+                <div id="plans-new" class="plans-content">
+                    <form id="plans-new-form">
+                        <label><span>Plan name: </span><input type="text" id="plans-new-name"></label>
+                        <input type="submit" id="plans-new-create" value="Create plan">
+                    </form>
+                </div>
+                <div id="plans-open" class="plans-content">
+                    <ul id="plans-list"></ul>
+                    <div id="plans-list-new"><span>New Test Plan</span></div>
+                </div>
+            </div>
+        </div>
+        <div id="panel-right" class="show-panel">
+            <div id="pages-detail" class="panel-right-inner">
+                <input type="button" class="close-right" value="&laquo;" title="Close details pane" data-for="pages">
+                <h2>Criteria to test for <br><span id="pages-detail-title"></span> <br><span id="pages-detail-url"></span></h2>
+                <ul id="pages-detail-list" class="expanding-list"></ul>
+            </div>
+            <div id="criteria-detail" class="panel-right-inner">
+                <input type="button" class="close-right" value="&laquo;" title="Close details pane" data-for="criteria">
+                <h2>Pages to test for <br><span id="criteria-detail-name"></span> <br><span id="criteria-detail-more">More details about this criterion &raquo;</span></h2>
+                <ul id="criteria-detail-list" class="expanding-list"></ul>
+            </div>
+            <div id="right-bottom">
+                <input type="button" class="close-bottom" value="&#10005;" title="Close information pane">
+                <h3>Description</h3>
+                <div id="right-bottom-description"></div><br>
+                <h3>Reasoning</h3>
+                <div id="right-bottom-reasoning"></div><br>
+                <h3>Guidance</h3>
+                <div id="right-bottom-guidance"></div><br>
+                <h3>Documentation</h3>
+                <div id="right-bottom-links"></div><br>
+            </div>
+        </div>
+        <script src="sidebar.js"></script>
+    </body>
+</html>
