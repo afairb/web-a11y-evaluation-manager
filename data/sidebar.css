@@ -1,3 +1,6 @@
+/*
+ * Reset default browser styles
+ */
 html, body,
 ul, li,
 h1, h2, h3, h4, h5, h6
@@ -22,6 +25,9 @@ ul
 }
 
 
+/*
+ * Expanding lists, used for pages and criteria in left and right panels
+ */
 
 .expanding-list
 {
@@ -30,13 +36,13 @@ ul
 
 .expanding-list li:before
 {
-    content: '\2023';
+    content: '\2023'; /* Generic bullet point */
     margin-right: 7px;
 }
 
 .expanding-list > li:before
 {
-    content: '\25B6';
+    content: '\25B6'; /* Arrow pointing right */
     position: relative;
     top: -3px;
     color: GrayText;
@@ -44,7 +50,7 @@ ul
 
 .expanding-list > li.shown:before
 {
-    content: '\25BC';
+    content: '\25BC'; /* Arrow pointing down */
     left: -1px;
     top: -4px;
     margin-right: 5px;
@@ -80,7 +86,7 @@ ul
 }
 
 .expanding-list > li.selected-group span.group-label::after {
-   content: ' \2022';
+   content: ' \2022'; /* Small dot */
 }
 
 .expanding-list > li span.group-label,
@@ -207,6 +213,11 @@ ul
     background-position: 2px 0;
 }
 
+
+/*
+ * Inline name editing
+ */
+
 #plan-name,
 #plan-name-input,
 .group-edit input
@@ -247,6 +258,9 @@ ul
 }
 
 
+/*
+ * Left and right panel elements and resizing
+ */
 
 #panel-left,
 #panel-right
@@ -286,17 +300,11 @@ ul
     width: 100%;
 }
 
-#left-top
-{
-    height: 28px;
-    padding: 6px 4px;
-    color: MenuText;
-    font-weight: bold;
-    background-color: Menu;
-    border-bottom: 2px solid WindowFrame;
-    overflow: hidden;
-}
 
+/*
+ * Main Pages/Criteria/Reports accordion
+ */
+ 
 .accordion-title
 {
     height: 24px;
@@ -334,6 +342,9 @@ ul
 }
 
 
+/*
+ * Inline accordions for page and criterion adding
+ */
 
 .inline-accordion li
 {
@@ -350,14 +361,14 @@ ul
 
 .inline-accordion h3:before
 {
-    content: '\002B';
+    content: '\002B'; /* + */
     margin-right: 0.5em;
     display: inline-block;
 }
 
 .inline-accordion h3.shown:before
 {
-    content: '\2212';
+    content: '\2212'; /* - */
 }
 
 .inline-accordion h3:hover
@@ -420,25 +431,10 @@ ul
     width: 50%;
 }
 
-#pages-add-journey-stop
-{
-    width: 100%;
-}
 
-span.help
-{
-    font-size: 17px;
-    position: relative;
-    top: 1px;
-    cursor: help;
-    opacity: 0.7;
-}
-
-#criteria-add-single-new-form span.help
-{
-    text-align: right;
-}
-
+/*
+ * Criteria adding tabs (set/single)
+ */
 
 #criteria-add-tabs
 {
@@ -470,10 +466,10 @@ span.help
     display: none;
 }
 
-.label-indent
-{
-    padding-left: 10px;
-}
+
+/*
+ * Report options form
+ */
 
 #reports-options label
 {
@@ -516,6 +512,10 @@ span.help
     width: 50%;
 }
 
+
+/*
+ * Plans menu (adding and opening)
+ */
 
 #left-bottom
 {
@@ -561,17 +561,17 @@ span.help
 #plans-menu-new:before,
 #plans-list-new:before
 {
-    content: '\1F4D1' !important;
+    content: '\1F4D1' !important; /* Page icon */
 }
 
 #plans-menu-open:before
 {
-    content: '\1F4C2';
+    content: '\1F4C2'; /* Open icon */
 }
 
 #plans-menu-cancel:before
 {
-    content: '\20E0';
+    content: '\20E0'; /* Cancel icon */
     padding-right: 12px !important;
 }
 
@@ -617,7 +617,7 @@ span.help
 #plans-list li:before,
 #plans-list-new:before
 {
-    content: '\1F4C4';
+    content: '\1F4C4'; /* Binder icon */
     padding-right: 5px;
 }
 
@@ -655,11 +655,9 @@ span.help
 }
 
 
-.inline-accordion li > div
-{
-    display: none;
-}
-
+/*
+ * Right side details panel
+ */
 
 .panel-right-inner
 {
@@ -746,4 +744,50 @@ span.help
 #panel-right.show-panel .panel-right-inner
 {
     height: 60%;
+}
+
+
+/*
+ * Other generic elements and miscellaneous definitions
+ */
+
+/* Plan name */
+#left-top
+{
+    height: 28px;
+    padding: 6px 4px;
+    color: MenuText;
+    font-weight: bold;
+    background-color: Menu;
+    border-bottom: 2px solid WindowFrame;
+    overflow: hidden;
+}
+
+span.help
+{
+    font-size: 17px;
+    position: relative;
+    top: 1px;
+    cursor: help;
+    opacity: 0.7;
+}
+
+#criteria-add-single-new-form span.help
+{
+    text-align: right;
+}
+
+.label-indent
+{
+    padding-left: 10px;
+}
+
+.inline-accordion li > div
+{
+    display: none;
+}
+
+#pages-add-journey-stop
+{
+    width: 100%;
 }

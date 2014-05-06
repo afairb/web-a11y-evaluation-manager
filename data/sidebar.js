@@ -1,11 +1,16 @@
 var state = {};
 
 (function($){
+    /*
+     * State management
+     * (The active plan is stored in tool so it automatically can reopened if the sidebar is closed)
+     */
     addon.port.emit("get_state");
     addon.port.on("send_state", function(data) {
         state = data;
         if (state.plan) addon.port.emit("get_plan", state.plan);
     });
+    /* End of state management */
 
 
     /*
